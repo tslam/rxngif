@@ -1,0 +1,4 @@
+- Challenge:
+- Support a URL /new. The response should be a form that has one text field, with which the user can supply the URL of a new image.
+- The form should send its data to http://localhost:3000/pictures
+- The index action should listen for form input; if it is present, it should use the user's URL to draw an extra image at the end of the list.
