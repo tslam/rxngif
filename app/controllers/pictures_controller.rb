@@ -1,18 +1,21 @@
 class PicturesController < ApplicationController
 
-  def index
-    # Needs fixing. @pictures is now an Array of Picture objects.
-    @pictures = Picture.all
+  def create
+    p = Picture.new
+    p.url = params[:url]
+    p.save
 
-    if params[:url].present?
-      # Write code to insert a row into the table.
-    end
+    redirect_to "http://localhost:3000/pictures"
+  end
+
+  def index
+    @pictures = Picture.all
   end
 
   def show
     # Needs fixing. params[:id] is now an ID of a row in the table.
-    @user_request = params["id"]
-    @url = Picture.all[@user_request.to_i - 1]
+    @user_request = params[:id]
+    @pic = Picture.find_by_id(@user_request)
   end
 
   def new
