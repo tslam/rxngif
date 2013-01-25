@@ -1,11 +1,19 @@
 class PicturesController < ApplicationController
 
+  def update
+    # Your code goes here.
+  end
+
   def create
     p = Picture.new
     p.url = params[:url]
     p.save
 
     redirect_to "http://localhost:3000/pictures"
+  end
+
+  def edit
+    @id = params[:id]
   end
 
   def index
