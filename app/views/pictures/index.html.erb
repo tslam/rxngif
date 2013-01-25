@@ -1,7 +1,12 @@
-<h1>List of Pictures</h1>
+<h1>REACTION GIFS</h1>
+
+<a href="http://localhost:3000/pictures/new">Add A New Picture</a>
 
 <ul>
   <% @pictures.each do |pic| %>
-    <li><img width="240" src="<%= pic.url %>" ></li>
+    <li>
+      <img width="240" src="<%= pic.url %>" >
+      <a href="http://localhost:3000/pictures/<%= pic.id %>/edit">Edit</a>
+    </li>
   <% end %>
 </ul>
