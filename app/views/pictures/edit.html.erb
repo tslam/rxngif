@@ -1,11 +1,8 @@
-<h1>Edit Picture # <%= @id %></h1>
+<h1>Edit Picture # <%= @pic.id %></h1>
 
-<a href="<%= single_picture_url(@id) %>">Cancel</a>
+<%= link_to "Cancel", single_picture_url(@pic.id) %>
 
-<form action="<%= update_picture_url %>" method="post">
-
-  <input type="text" name="url">
-
-  <input type="submit">
-
-</form>
+<%= form_tag update_picture_url(@pic.id), :method => "put" do %>
+  <%= text_field_tag :url, @pic.url, :size => 120 %>
+  <%= submit_tag  %>
+<% end %>

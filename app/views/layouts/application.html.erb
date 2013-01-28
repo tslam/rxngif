@@ -7,13 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><h1><%= link_to "RXNGIFS", root_url, :id => "logo" %></h1></li>
-      <li><%= link_to "Add A New Picture", new_picture_form_url %></li>
-    </ul>
-  </nav>
-<%= yield %>
+  <header>
+    <nav>
+      <ul>
+        <li><%= link_to "RXNGIFS", root_url, :id => "logo" %></li>
+        <li><%= link_to "Add A New Picture", new_picture_form_url %></li>
+      </ul>
+    </nav>
+  </header>
+  <%= yield %>
 
 </body>
 </html>
