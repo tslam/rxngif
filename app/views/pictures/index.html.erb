@@ -1,13 +1,13 @@
 <h1>REACTION GIFS</h1>
 
-<a href="http://localhost:3000/pictures/new">Add A New Picture</a>
+<a href="<%= new_picture_form_url %>">Add A New Picture</a>
 
 <ul>
   <% @pictures.each do |pic| %>
     <li>
-      <a href="http://localhost:3000/pictures/<%= pic.id %>"><img width="240" src="<%= pic.url %>" ></a>
-      <a href="http://localhost:3000/pictures/<%= pic.id %>/edit">Edit</a>
-      <a href="http://localhost:3000/delete_picture/<%= pic.id %>">Delete</a>
+      <a href="<%= single_picture_url(pic.id) %>"><img width="240" src="<%= pic.url %>" ></a>
+      <a href="<%= edit_picture_form_url(pic.id) %>">Edit</a>
+      <a href="<%= delete_picture_url(pic.id) %>">Delete</a>
 
     </li>
   <% end %>

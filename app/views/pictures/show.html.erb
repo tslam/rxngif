@@ -1,5 +1,8 @@
 <h1>Showing Picture #<%= @user_request %></h1>
 
+<a href="<%= pictures_list_url %>">Back</a> | <a href="<%= edit_picture_form_url(@pic.id) %>">Edit</a>
+
+
 <img width="480" src="<%= @pic.url %>">
 
 <p><%= @pic.caption %></p>

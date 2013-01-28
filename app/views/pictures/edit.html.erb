@@ -1,5 +1,7 @@
 <h1>Edit Picture # <%= @id %></h1>
 
+<a href="<%= single_picture_url(@id) %>">Cancel</a>
+
 <form action="/edit_picture/<%= @id %>" method="post">
 
   <input type="text" name="url">
