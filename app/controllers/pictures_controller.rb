@@ -1,7 +1,18 @@
 class PicturesController < ApplicationController
 
+  # def pictures_url
+  #   return "http://localhost:3000/my_photos"
+  # end
+
+  # def picture_url(id)
+  #   return "http://localhost:3000/pictures/#{id}"
+  # end
+
   def update
-    # Your code goes here.
+    p = Picture.find_by_id(params[:id])
+    p.url = params[:url]
+    p.save
+    redirect_to single_picture_url(params[:id])
   end
 
   def create
@@ -9,7 +20,7 @@ class PicturesController < ApplicationController
     p.url = params[:url]
     p.save
 
-    redirect_to "http://localhost:3000/pictures"
+    redirect_to pictures_list_url
   end
 
   def edit
@@ -27,7 +38,14 @@ class PicturesController < ApplicationController
   end
 
   def new
-
   end
+
+  def delete
+    @pictures_url = "http://localhost:3000/pictures"
+    p = Picture.find_by_id(params[:id])
+    p.destroy
+    redirect_to pictures_list_url
+  end
+
 
 end

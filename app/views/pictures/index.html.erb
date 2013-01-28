@@ -5,8 +5,10 @@
 <ul>
   <% @pictures.each do |pic| %>
     <li>
-      <img width="240" src="<%= pic.url %>" >
+      <a href="http://localhost:3000/pictures/<%= pic.id %>"><img width="240" src="<%= pic.url %>" ></a>
       <a href="http://localhost:3000/pictures/<%= pic.id %>/edit">Edit</a>
+      <a href="http://localhost:3000/delete_picture/<%= pic.id %>">Delete</a>
+
     </li>
   <% end %>
 </ul>
