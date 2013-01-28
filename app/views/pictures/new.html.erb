@@ -2,7 +2,7 @@
 
 <%= form_tag pictures_list_url do %>
   <%= text_field_tag :url # optional 2nd argument for default value %>
-  <%= submit_tag # optional 2nd argument for button text %>
+  <%= submit_tag # optional 1st argument for button text %>
 <% end %>
 <%# The above does the same thing as the below -- almost. View source on the final page to see the differences. %>
 <form action="<%= pictures_list_url %>" method="post">
