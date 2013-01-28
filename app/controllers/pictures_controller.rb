@@ -41,7 +41,6 @@ class PicturesController < ApplicationController
   end
 
   def delete
-    @pictures_url = "http://localhost:3000/pictures"
     p = Picture.find_by_id(params[:id])
     p.destroy
     redirect_to pictures_list_url

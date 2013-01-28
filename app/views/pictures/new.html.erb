@@ -1,9 +1,11 @@
 <h1>Add A New Picture</h1>
 
-<form action="/pictures" method="post">
-
+<%= form_tag pictures_list_url do %>
+  <%= text_field_tag :url # optional 2nd argument for default value %>
+  <%= submit_tag # optional 2nd argument for button text %>
+<% end %>
+<%# The above does the same thing as the below -- almost. View source on the final page to see the differences. %>
+<form action="<%= pictures_list_url %>" method="post">
   <input type="text" name="url">
-
   <input type="submit">
-
 </form>

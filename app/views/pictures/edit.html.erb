@@ -2,7 +2,7 @@
 
 <a href="<%= single_picture_url(@id) %>">Cancel</a>
 
-<form action="/edit_picture/<%= @id %>" method="post">
+<form action="<%= update_picture_url %>" method="post">
 
   <input type="text" name="url">
 

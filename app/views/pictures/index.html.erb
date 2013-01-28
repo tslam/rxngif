@@ -1,12 +1,18 @@
-<h1>REACTION GIFS</h1>
-
-<a href="<%= new_picture_form_url %>">Add A New Picture</a>
-
 <ul>
   <% @pictures.each do |pic| %>
     <li>
-      <a href="<%= single_picture_url(pic.id) %>"><img width="240" src="<%= pic.url %>" ></a>
+
+      <a href="<%= single_picture_url(pic.id) %>">
+        <img width="240" src="<%= pic.url %>" >
+      </a>
+      <%# The above does the same thing as the below -- almost. View source on the final page to see the differences. %>
+      <%= link_to image_tag(pic.url, :width => 240), single_picture_url(pic.id) %>
+
       <a href="<%= edit_picture_form_url(pic.id) %>">Edit</a>
+      <%# The above does the same thing as the below. View source to confirm. %>
+      <%= link_to "Edit", edit_picture_form_url(pic.id) %>
+
+
       <a href="<%= delete_picture_url(pic.id) %>">Delete</a>
 
     </li>

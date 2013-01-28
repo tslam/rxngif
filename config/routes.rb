@@ -4,10 +4,10 @@ Rxngif::Application.routes.draw do
 
   # Create
   get "/pictures/new" => "Pictures#new", :as => "new_picture_form"
-  post "/pictures" => "Pictures#create"
+  post "/pictures" => "Pictures#create", :as => "create_picture"
 
   # Read
-  get("/pictures", {:controller => "Pictures", :action => "index", :as => "pictures_list"})
+  get("/my_photos", {:controller => "Pictures", :action => "index", :as => "pictures_list"})
 
   # The :as => "pictures" option causes Rails to define the following method:
   # def pictures_url
@@ -24,7 +24,7 @@ Rxngif::Application.routes.draw do
 
   # Update
   get "/pictures/:id/edit" => "Pictures#edit", :as => "edit_picture_form"
-  post "/edit_picture/:id" => "Pictures#update"
+  post "/edit_picture/:id" => "Pictures#update", :as => "update_picture"
 
   # Destroy
   get "/delete_picture/:id" => "Pictures#delete", :as => "delete_picture"
