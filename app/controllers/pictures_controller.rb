@@ -12,7 +12,7 @@ class PicturesController < ApplicationController
     p = Picture.find_by_id(params[:id])
     p.url = params[:url]
     p.save
-    redirect_to single_picture_url(params[:id])
+    redirect_to single_picture_url(p.id)
   end
 
   def create

@@ -2,7 +2,7 @@
 
 <%= link_to "Cancel", single_picture_url(@pic.id) %>
 
-<%= form_tag update_picture_url(@pic.id), :method => "put" do %>
+<%= form_tag update_picture_url(@pic.id) do %>
   <%= text_field_tag :url, @pic.url, :size => 120 %>
   <%= submit_tag  %>
 <% end %>
