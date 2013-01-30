@@ -1,9 +1,9 @@
 <h1>Showing Picture #<%= @user_request %></h1>
 
 <nav>
-<%= link_to "Back", pictures_list_url %>
+<%= link_to "Back", pictures_url %>
 |
-<%= link_to "Edit", edit_picture_form_url(@pic.id) %>
+<%= link_to "Edit", edit_picture_url(@pic.id) %>
 </nav>
 
 <%= image_tag @pic.url, :width => 480 %>

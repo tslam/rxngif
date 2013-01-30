@@ -1,8 +1,9 @@
 <h1>Add A New Picture</h1>
 
-<%= link_to "Cancel", pictures_list_url %>
+<%= link_to "Cancel", pictures_url %>
 
-<%= form_tag pictures_list_url do %>
+<%= form_tag pictures_url do %>
   <%= text_field_tag :url %>
+  <%= text_field_tag :caption %>
   <%= submit_tag %>
 <% end %>
