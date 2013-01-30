@@ -1,8 +1,11 @@
 module ApplicationHelper
 
   def form_for(model)
-
-    return "<form action='#{}' method='#{}'".html_safe
+    if #something
+      return "<form action='#{}' method='#{}'"
+    else
+      return "<form action='#{}' method='#{}'"
+    end
   end
 
 end
