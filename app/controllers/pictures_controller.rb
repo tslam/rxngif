@@ -8,7 +8,7 @@ class PicturesController < ApplicationController
 
   def create
     p = Picture.create(params[:picture])
-    redirect_to pictures_url
+    redirect_to pictures_url, :notice => "Picture created successfully."
   end
 
   def edit
@@ -17,12 +17,20 @@ class PicturesController < ApplicationController
 
   def index
     @pictures = Picture.all
+
+    respond_to do |format|
+      format.html { render 'index' }
+      format.json { render :json => @pictures }
+    end
   end
 
   def show
-    # Needs fixing. params[:id] is now an ID of a row in the table.
-    @user_request = params[:id]
-    @pic = Picture.find_by_id(@user_request)
+    @pic = Picture.find_by_id(params[:id])
+
+    respond_to do |format|
+      format.html { render 'show' }
+      format.json { render :json => @pic }
+    end
   end
 
   def new
@@ -32,8 +40,6 @@ class PicturesController < ApplicationController
   def delete
     p = Picture.find_by_id(params[:id])
     p.destroy
-    redirect_to pictures_url
+    redirect_to pictures_url, :notice => "Picture toasted."
   end
-
-
 end
