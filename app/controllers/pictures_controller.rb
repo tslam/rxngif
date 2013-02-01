@@ -7,7 +7,10 @@ class PicturesController < ApplicationController
   end
 
   def create
-    p = Picture.create(params[:picture])
+    p = Picture.new(params[:picture])
+
+    p.save # only if the url field had some data in it
+
     redirect_to pictures_url, :notice => "Picture created successfully."
   end
 
