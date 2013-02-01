@@ -1,3 +1,9 @@
+<ul>
+<% @pic.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<% end %>
+</ul>
+
 <%= form_for @pic do |f| %>
   <div>
     <%= f.label :url %>

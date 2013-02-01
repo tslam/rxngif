@@ -1,21 +1,20 @@
 class PicturesController < ApplicationController
   def update
-    p = Picture.find_by_id(params[:id])
+    @pic = Picture.find_by_id(params[:id])
 
-    if p.url.empty?
-      redirect_to edit_picture_url(p), :notice => "URL is empty"
+    if @pic.update_attributes(params[:picture])
+      redirect_to @pic, :notice => "Picture updated successfully."
     else
-      p.update_attributes(params[:picture]) # only if the url field had some data in it
-      redirect_to picture_url(p), :notice => "Picture updated successfully."
+      render 'edit'
     end
   end
 
   def create
-    p = Picture.new(params[:picture])
-    if p.save
+    @pic = Picture.new(params[:picture])
+    if @pic.save
       redirect_to pictures_url, :notice => "Picture created successfully."
     else
-      redirect_to new_picture_url, :notice => "No URL entered"
+      render 'new'
     end
   end
 

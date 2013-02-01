@@ -5,4 +5,5 @@ class Picture < ActiveRecord::Base
   # THIS IS ONLY FOR WHITELISTING WHICH COLUMNS CAN BE MASS ASSIGNED
 
   validates_presence_of :url
+  validates_uniqueness_of :url
 end
