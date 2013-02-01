@@ -1,0 +1,12 @@
+<%= form_for @pic do |f| %>
+  <div>
+    <%= f.label :url %>
+    <%= f.text_field :url, :placeholder => "Enter the picture's source" %>
+  </div>
+  <div>
+    <%= f.label :caption %>
+    <%= f.text_field :caption, :placeholder => "Enter a caption" %>
+  </div>
+  <%= f.submit %>
+  Thank you!
+<% end %>

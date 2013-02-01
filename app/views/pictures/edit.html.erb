@@ -2,8 +2,4 @@
 
 <%= link_to "Cancel", picture_url(@pic.id) %>
 
-<%= form_tag picture_url(@pic.id), :method => "put" do %>
-  <%= text_field_tag :url, @pic.url, :size => 120 %>
-  <%= text_field_tag :caption, @pic.caption, :size => 120 %>
-  <%= submit_tag  %>
-<% end %>
+<%= render 'form' %>

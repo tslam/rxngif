@@ -2,8 +2,4 @@
 
 <%= link_to "Cancel", pictures_url %>
 
-<%= form_tag pictures_url do %>
-  <%= text_field_tag :url %>
-  <%= text_field_tag :caption %>
-  <%= submit_tag %>
-<% end %>
+<%= render 'form' %>

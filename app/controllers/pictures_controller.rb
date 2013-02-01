@@ -1,21 +1,13 @@
 class PicturesController < ApplicationController
   def update
     p = Picture.find_by_id(params[:id])
-    form_data = { :url => params[:url], :caption => params[:caption] }
-    p.update_attributes(form_data)
-    # p.url = params[:url]
-    # p.caption = params[:caption]
-    # p.save
+    p.update_attributes(params[:picture])
+
     redirect_to picture_url(p.id)
   end
 
   def create
-    form_data = { :url => params[:url], :caption => params[:caption] }
-    p = Picture.create(form_data)
-    # p.url = params[:url]
-    # p.caption = params[:caption]
-    # p.save
-
+    p = Picture.create(params[:picture])
     redirect_to pictures_url
   end
 
@@ -34,6 +26,7 @@ class PicturesController < ApplicationController
   end
 
   def new
+    @pic = Picture.new
   end
 
   def delete
