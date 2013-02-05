@@ -1,11 +1,18 @@
-<h1>Showing Picture #<%= @pic.id %></h1>
+<h2>Showing Picture #<%= @pic.id %></h2>
 
 <nav>
-<%= link_to "Back", pictures_url %>
-|
-<%= link_to "Edit", edit_picture_url(@pic) %>
+  <%= link_to "Back", pictures_url %>
+  |
+  <%= link_to "Edit", edit_picture_url(@pic) %>
 </nav>
 
-<%= image_tag @pic.url, :width => 480 %>
+<div class="picture">
+  <%= image_tag @pic.url, :class => "pic #{"favorite" if @pic.favorite }" %>
 
-<p><%= @pic.caption %></p>
+  <p><%= @pic.caption %></p>
+  <% if @pic.favorite %>
+    <p>Favorite</p>
+  <% else %>
+    <p>Not Favorite</p>
+  <% end %>
+</div>

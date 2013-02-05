@@ -1,17 +1,29 @@
-<ul>
-<% @pic.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
+<% if @pic.errors.any? %>
+  <div id="errors_collection">
+    <ul>
+      <% @pic.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
-</ul>
 
-<%= form_for @pic do |f| %>
-  <div>
-    <%= f.label :url %>
-    <%= f.text_field :url, :placeholder => "Enter the picture's source" %>
-  </div>
-  <div>
-    <%= f.label :caption %>
-    <%= f.text_field :caption, :placeholder => "Enter a caption" %>
-  </div>
-  <%= f.submit %>
-<% end %>
+<div class="picture">
+  <%= form_for @pic do |f| %>
+    <fieldset>
+      <div>
+        <%= f.label :url %>
+        <%= f.text_field :url, :placeholder => "Enter the picture's source" %>
+      </div>
+      <div>
+        <%= f.label :caption %>
+        <%= f.text_field :caption, :placeholder => "Enter a caption" %>
+      </div>
+      <div>
+        <%= f.label :favorite %>
+        <%= f.check_box :favorite %>
+      </div>
+    </fieldset>
+    <%= f.submit %>
+  <% end %>
+</div>

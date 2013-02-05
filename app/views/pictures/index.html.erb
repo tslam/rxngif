@@ -1,9 +1,18 @@
-<ul>
+<nav>
+  <%= link_to "Add A New Picture", new_picture_url %>
+</nav>
+
+<ul id="pictures">
   <% @pictures.each do |pic| %>
-    <li>
-      <%= link_to image_tag(pic.url, :width => 240), pic %>
-      <%= link_to "Edit", edit_picture_url(pic) %>
-      <%= link_to "Delete", pic, :method => "delete" %>
+    <li class="picture">
+      <%= link_to image_tag(pic.url, :class => "pic #{"favorite" if pic.favorite }"), pic %>
+      <p><%= pic.caption %></p>
+      <nav>
+        <%= link_to "Show", pic %>
+        <%= link_to "Edit", edit_picture_url(pic) %>
+        <%= link_to "Delete", pic, :method => "delete" %>
+      </nav>
     </li>
   <% end %>
 </ul>
+

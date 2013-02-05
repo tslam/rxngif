@@ -1,5 +1,7 @@
-<h1>Edit Picture # <%= @pic.id %></h1>
+<h2>Edit Picture #<%= @pic.id %></h2>
 
-<%= link_to "Cancel", @pic %>
+<nav>
+  <%= link_to "Cancel", @pic %>
+</nav>
 
 <%= render 'form' %>
